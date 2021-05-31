@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // this defines what 1rem is, so it is not typography
+  font-size: 62.5%; // 1rem=10px
+
+  // this one isn't really necessary because it's the same as tab-port and if the size is less than 900 it's also less than 600
+  // @include respond(tab-port) {
+  //   font-size: 50%; // 1 rem = 8 px
+  // }
+
+  @include respond(tab-land) {
+    font-size: 65.25%; // 1rem =9px
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem =12
+  }
+
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
